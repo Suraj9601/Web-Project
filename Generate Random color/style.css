@@ -1,0 +1,17 @@
+body {
+    text-align: center;
+    
+}
+div {
+    width: 500px;
+    height: 200px;
+    border: 1px solid black;
+    margin: auto;
+    align-content: center;
+}
+button {
+    background-color: gold;
+    border-radius: 20%;
+    padding: 5px 15px;
+    margin-bottom: 20px;
+}
