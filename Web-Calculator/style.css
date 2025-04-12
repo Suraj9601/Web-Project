@@ -42,8 +42,8 @@ input {
 }
 
 button {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     font-size: 1.5rem;
     border: none;
     border-radius: 50%;
@@ -56,8 +56,15 @@ button:hover {
     background: #666;
 }
 
-button:nth-child(1) { background: red; }
-button:nth-child(2) { background: orange; }
-button:nth-child(3) { background: green; }
-button:nth-child(4) { background: rgb(94, 101, 1); }
-button:last-child { background: blue; }
+button:nth-child(1),
+button:nth-child(2),
+button:nth-child(3)  { 
+    background: white;
+    color: black; }
+
+button:nth-child(4),
+button:nth-child(8),
+button:nth-child(12),
+button:nth-child(16),
+button:last-child { background: orange;
+color: black; }
