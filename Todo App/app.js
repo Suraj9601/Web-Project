@@ -10,20 +10,27 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 // 🔹 MySQL connection (prod safe)
-const db = mysql.createConnection({
+
+const db = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
+  port: process.env.DB_PORT, // 🔥 VERY IMPORTANT
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
 });
 
-db.connect(err => {
+// optional test (safe)
+db.query("SELECT 1", (err) => {
   if (err) {
-    console.error("❌ MySQL connection failed:", err.message);
+    console.error("❌ MySQL pool error:", err.message);
   } else {
-    console.log("✅ MySQL Connected");
+    console.log("✅ MySQL Pool Connected");
   }
 });
+
 
 // 🔹 __dirname for ES modules
 const __filename = fileURLToPath(import.meta.url);
